@@ -18,6 +18,11 @@ while getopts ":t:s:v:e:d" arg; do
       		;;
 		s)
       		DEFAULT_VOICE_SPEED="${OPTARG}"
+
+      		if ! [[ $DEFAULT_VOICE_SPEED =~  ^[0-9]+$ ]]; then
+   				echo "The given -s argument needs to be a number" >&2
+   				exit 1
+			fi
       		;;
       	v)
       		DEFAULT_VOICE="${OPTARG}"
