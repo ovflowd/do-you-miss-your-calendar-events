@@ -6,37 +6,7 @@ This repository provides a small script which will definitely remind you of your
 
 ---
 
-### FAQ and Operation
-
-**For which platforms this script works?**
-
-This script was originally designed taking `macOS` in place because of the following dependencies
-
-- The `say` command (not to be mistaken with GNU Say)
-- How the `date` command operates differently
-- Taking in place [iCalBuddy](https://hasseg.org/icalBuddy/) was installed via [Homebrew](https://brew.sh/)
-
-**What are the dependencies?**
-
-The `remind-me-please.sh` is a script made purely with Bash which requires the [iCalBuddy](https://hasseg.org/icalBuddy/) package.
-
-You can easily install it by running
-
-```shell
-brew install ical-buddy
-```
-
-**How does the script works?**
-
-- It will request iCalBuddy to give you the next Calendar entry from your day. (All-day events are ignored)
-- If there's an entry the script will get the time of the event
-- The script will compare if the event will happen in the next minute
-- If all conditions above are met, the script will voice over your next Calendar entry
-  - It will say something like "You have an upcoming meeting at TIME called Event Title"
-
-**Note.:** The script executes in a `while` loop forever. It will execute the contents of the script every 1 minute. You can simply exit the script with `Ctrl + C`
-
-**Script API**
+### Usage
 
 This script contains a few arguments that you can use to customize it. The following is the usage of the script
 
@@ -55,13 +25,43 @@ remind-me-please.sh
   -e Exclude some calendars. Give the Calendars name. | Default=""
 ```
 
-**How to execute this script automatically on Startup** 
+### FAQ
+
+#### For which platforms this script works?
+
+This script was originally designed taking `macOS` in place because of the following dependencies
+
+- The `say` command (not to be mistaken with GNU Say)
+- How the `date` command operates differently
+- Taking in place [iCalBuddy](https://hasseg.org/icalBuddy/) was installed via [Homebrew](https://brew.sh/)
+
+####  What are the dependencies?
+
+The `remind-me-please.sh` is a script made purely with Bash which requires the [iCalBuddy](https://hasseg.org/icalBuddy/) package.
+
+You can easily install it by running
+
+```shell
+brew install ical-buddy
+```
+
+#### How does the script works?
+
+- It will request iCalBuddy to give you the next Calendar entry from your day. (All-day events are ignored)
+- If there's an entry the script will get the time of the event
+- The script will compare if the event will happen in the next minute
+- If all conditions above are met, the script will voice over your next Calendar entry
+  - It will say something like "You have an upcoming meeting at TIME called Event Title"
+
+**Note.:** The script executes in a `while` loop forever. It will execute the contents of the script every 1 minute. You can simply exit the script with `Ctrl + C`
+
+#### How to execute this script automatically on Startup
 
 An easy way of making the Script to start on Boot it by running Automator. You can follow [this](https://stackoverflow.com/a/6445525) tutorial.
 
 **Note.:** Crontabs are not supported.
 
-**Can't execute the script?**
+#### Can't execute the script?
 
 You need to give proper execution permissions to the script. Try running:
 
@@ -69,7 +69,7 @@ You need to give proper execution permissions to the script. Try running:
 chmod a+x remind-me-please.sh
 ```
 
-**How it reads my Calendar?**
+#### How it reads my Calendar?
 
 - iCalBuddy uses the System Calendar Integration. Which means you need to have your Calendar imported on the macOS Calendar App.
 It can be a CalDav, iCal or even Internet Account.
@@ -78,7 +78,7 @@ It can be a CalDav, iCal or even Internet Account.
 
 **Note.:** It will by default read data from all your Calendars.
 
-**Why you made this script?**
+#### Why you made this script?
 
 - I don't want to connect calendar on Alexa, or other Speaker devices that announce Calendar entries
 - Can be executed in any macOS running computer (Potentially Linux too with some modifications)
