@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 
 DEFAULT_REMAINING_TIME="1"
 DEFAULT_VOICE_SPEED="150"
