@@ -42,7 +42,7 @@ do
 		echo "• Starting the Calendar Script"
 	fi
 
-	NEXT_ENTRY=$(/usr/local/bin/icalBuddy -n -ea -npn -nc -eed -iep "title,datetime" -ps "| : |" -po "datetime,title" -ec "$EXCLUDED_CALENDARS" -li 1 eventsToday)
+	NEXT_ENTRY=$(icalBuddy -n -ea -npn -nc -eed -iep "title,datetime" -ps "| : |" -po "datetime,title" -ec "$EXCLUDED_CALENDARS" -li 1 eventsToday)
 	NEXT_ENTRY=${NEXT_ENTRY#"• "}
 
 	if [[ $DEBUG_MODE = true ]]; then
